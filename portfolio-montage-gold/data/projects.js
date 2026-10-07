@@ -104,4 +104,26 @@ window.GALLERIES = [
       "images/galerie/africa-mma-league/04.jpg",
     ],
   },
+  {
+    client: "Urbanik",
+    title: "Urbanik",
+    period: "Salon & conférence",
+    images: [
+      "images/galerie/urbanik/01.jpg",
+      "images/galerie/urbanik/02.jpg",
+      "images/galerie/urbanik/03.jpg",
+      "images/galerie/urbanik/04.jpg",
+    ],
+  },
+  {
+    client: "Hôtel BNB Resort",
+    title: "Hôtel BNB Resort",
+    period: "Shooting photo",
+    images: [
+      "images/galerie/bnb/01.jpg",
+      "images/galerie/bnb/02.jpg",
+      "images/galerie/bnb/03.jpg",
+      "images/galerie/bnb/04.jpg",
+    ],
+  },
 ];
