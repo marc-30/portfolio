@@ -6,6 +6,7 @@
   var SHOWREEL = window.SHOWREEL || null;
   var POSTERS = window.POSTERS || [];
   var WORKS = window.WORKS || [];
+  var GALLERIES = window.GALLERIES || [];
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ───────── Helpers ───────── */
@@ -155,6 +156,38 @@
     ]));
   });
 
+  /* ───────── Galerie (collaborations en photos) ───────── */
+  var galleryList = document.getElementById("gallery-list");
+  if (!GALLERIES.length) document.getElementById("galerie").hidden = true;
+
+  GALLERIES.forEach(function (g, gi) {
+    var images = g.images || [];
+    var thumbs = el("div", { class: "gallery__thumbs" });
+    images.slice(0, 4).forEach(function (src, i) {
+      var t = el("button", {
+        type: "button", class: "gallery__thumb",
+        "aria-label": "Voir la photo " + (i + 1) + " : " + g.title,
+        onclick: function () { openGallery(g, i, t); }
+      }, [el("img", { src: src, alt: "", loading: "lazy", decoding: "async" })]);
+      if (i === 3 && images.length > 4) t.appendChild(el("span", { class: "gallery__more", text: "+" + (images.length - 4) }));
+      thumbs.appendChild(t);
+    });
+    var open = el("button", { type: "button", class: "btn btn--solid gallery__btn", onclick: function () { openGallery(g, 0, open); } }, [
+      document.createTextNode("Voir la galerie"),
+      el("span", { class: "arrow", "aria-hidden": "true", text: "→" })
+    ]);
+    galleryList.appendChild(el("article", { class: "gallery__row", "data-reveal": "up" }, [
+      el("div", { class: "gallery__info" }, [
+        el("span", { class: "gallery__num", text: String(gi + 1).padStart(2, "0") }),
+        el("div", { class: "project__cat" }, [el("span", { class: "rule" }), el("span", { text: g.period || "" })]),
+        el("h4", { class: "gallery__title", text: g.title || g.client || "" }),
+        el("span", { class: "gallery__count", text: String(images.length).padStart(2, "0") + " photos" }),
+        open
+      ]),
+      thumbs
+    ]));
+  });
+
   /* ───────── Contact ───────── */
   var c = SITE.contact || {};
   var rows = [
@@ -180,9 +213,32 @@
   var frame = document.getElementById("modal-frame");
   var closeBtn = document.getElementById("modal-close");
   var lastFocus = null;
+  var prevBtn = document.getElementById("modal-prev");
+  var nextBtn = document.getElementById("modal-next");
+  var gallery = null; // { g: collaboration, i: photo affichée }
+
+  function showGalleryImage(i) {
+    var images = gallery.g.images;
+    gallery.i = (i + images.length) % images.length;
+    frame.innerHTML = "";
+    frame.appendChild(el("img", { src: images[gallery.i], alt: gallery.g.title + " — photo " + (gallery.i + 1) }));
+    document.getElementById("modal-cat").textContent = String(gallery.i + 1).padStart(2, "0") + " / " + String(images.length).padStart(2, "0");
+  }
+
+  function openGallery(g, i, trigger) {
+    openModal({ image: g.images[i], title: g.title }, trigger);
+    gallery = { g: g, i: i };
+    var several = g.images.length > 1;
+    prevBtn.hidden = nextBtn.hidden = !several;
+    showGalleryImage(i);
+  }
+  prevBtn.addEventListener("click", function () { showGalleryImage(gallery.i - 1); });
+  nextBtn.addEventListener("click", function () { showGalleryImage(gallery.i + 1); });
 
   function openModal(item, trigger) {
     lastFocus = trigger || document.activeElement;
+    gallery = null;
+    prevBtn.hidden = nextBtn.hidden = true;
     var v = parseVideo(item.video);
     frame.innerHTML = "";
     frame.classList.toggle("modal__frame--image", !!item.image);
@@ -221,6 +277,8 @@
   document.addEventListener("keydown", function (e) {
     if (modal.hidden) return;
     if (e.key === "Escape") { closeModal(); return; }
+    if (gallery && e.key === "ArrowLeft") { showGalleryImage(gallery.i - 1); return; }
+    if (gallery && e.key === "ArrowRight") { showGalleryImage(gallery.i + 1); return; }
     if (e.key !== "Tab") return;
     var f = modal.querySelectorAll("button, video, iframe, a[href]");
     var first = f[0], last = f[f.length - 1];

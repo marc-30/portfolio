@@ -86,3 +86,22 @@ window.WORKS = [
   { client: "Sophos", title: "Présentation Sophos", thumbnail: "images/realisations/sophos.jpg", video: "videos/realisations/presentation-sophos.mp4" },
   { client: "Documentaire IA", title: "Le Pluvian d’Égypte", thumbnail: "images/realisations/pluvian.jpg", video: "videos/realisations/documentaire-pluvian-egypte.mp4" },
 ];
+
+/**
+ * 4 — Galerie : photos de collaborations, par client / événement.
+ * Ajoutez un objet par collaboration, et autant d'images que vous voulez.
+ * Dossier conseillé : images/galerie/<nom-du-client>/
+ */
+window.GALLERIES = [
+  {
+    client: "Africa MMA League",
+    title: "Africa MMA League",
+    period: "2023 — 1ʳᵉ & 2ᵉ éditions",
+    images: [
+      "images/galerie/africa-mma-league/01.jpg",
+      "images/galerie/africa-mma-league/02.jpg",
+      "images/galerie/africa-mma-league/03.jpg",
+      "images/galerie/africa-mma-league/04.jpg",
+    ],
+  },
+];
