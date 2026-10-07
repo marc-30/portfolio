@@ -84,4 +84,5 @@ window.WORKS = [
   { client: "Urbanik", title: "Film institutionnel Urbanik", thumbnail: "images/realisations/urbanik.jpg", video: "videos/realisations/film-urbanik.mp4" },
   { client: "MFFE", title: "Film MFFE", thumbnail: "images/realisations/mffe.jpg", video: "videos/realisations/film-mffe.mp4" },
   { client: "Sophos", title: "Présentation Sophos", thumbnail: "images/realisations/sophos.jpg", video: "videos/realisations/presentation-sophos.mp4" },
+  { client: "Documentaire IA", title: "Le Pluvian d’Égypte", thumbnail: "images/realisations/pluvian.jpg", video: "videos/realisations/documentaire-pluvian-egypte.mp4" },
 ];

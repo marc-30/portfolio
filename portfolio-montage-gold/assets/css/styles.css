@@ -212,6 +212,10 @@ button { font-family: inherit; }
 .works__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 64px) clamp(20px, 2.4vw, 40px); }
 .work { display: flex; flex-direction: column; gap: 18px; }
 .work .project__cat { margin-top: 6px; }
+@media (min-width: 561px) {
+  /* Nombre impair de réalisations : la dernière est centrée sur sa ligne. */
+  .work:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - clamp(10px, 1.2vw, 20px)); }
+}
 .work__title { margin: 0; font-size: clamp(20px, 1.8vw, 26px); font-weight: 600; line-height: 1.15; letter-spacing: -.02em; color: var(--montage-green); }
 
 /* Affiche ouverte en grand */
@@ -289,7 +293,8 @@ button { font-family: inherit; }
 }
 @media (max-width: 560px) {
   .nav { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .nav__links { gap: 22px; font-size: 11px; }
+  .nav__links { flex-wrap: wrap; gap: 0 20px; font-size: 11px; letter-spacing: .14em; }
+  .hero__title { font-size: 11vw; }
   .btn { width: 100%; justify-content: space-between; }
   .contact__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .media__play { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
@@ -298,6 +303,10 @@ button { font-family: inherit; }
 }
 
 /* ───────── Reduced motion ───────── */
+@media (max-width: 374px) {
+  .h2 { font-size: 30px; }
+  .statement__text { font-size: 15vw; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
