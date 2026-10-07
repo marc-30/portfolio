@@ -107,6 +107,7 @@ button { font-family: inherit; }
 .brand:hover { color: var(--white); }
 .nav__links { display: flex; gap: clamp(18px, 3vw, 44px); font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; }
 .nav__links a { padding: 10px 0; }
+.nav__toggle { display: none; }
 .hero__body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-top: clamp(48px, 8vh, 96px); padding-bottom: clamp(48px, 8vh, 96px); }
 .hero__body .eyebrow { margin-bottom: clamp(28px, 4vh, 44px); }
 .hero__title {
@@ -267,6 +268,7 @@ button { font-family: inherit; }
 .contact__row dd { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
 .contact__row dd a { color: var(--montage-green); }
 .contact__row dd a:hover { color: var(--montage-orange); }
+.contact__row dd a .arrow { display: none; }
 
 /* ───────── Footer ───────── */
 .footer { background: var(--montage-green); color: var(--white); padding: clamp(56px, 7vw, 96px) 0 32px; }
@@ -321,12 +323,51 @@ button { font-family: inherit; }
   .works__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gallery__row { grid-template-columns: minmax(0, 1fr); }
 }
+/* ───────── Menu mobile : bouton + menu plein écran ───────── */
+@media (max-width: 760px) {
+  .nav { flex-wrap: nowrap; padding-top: 20px; padding-bottom: 20px; }
+  .nav__toggle {
+    position: relative; z-index: 1100; display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 0 12px 12px; border: 0; background: none; color: var(--white); cursor: pointer;
+    font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  }
+  .nav__toggle-icon { position: relative; width: 22px; height: 10px; }
+  .nav__toggle-icon::before, .nav__toggle-icon::after {
+    content: ""; position: absolute; left: 0; width: 100%; height: 1px; background: var(--montage-lime);
+    transition: transform .4s var(--ease), top .4s var(--ease);
+  }
+  .nav__toggle-icon::before { top: 0; }
+  .nav__toggle-icon::after { top: 9px; }
+  .menu-open .nav__toggle-icon::before { top: 5px; transform: rotate(45deg); }
+  .menu-open .nav__toggle-icon::after { top: 5px; transform: rotate(-45deg); }
+
+  .nav__links {
+    position: fixed; inset: 0; z-index: 1050;
+    flex-direction: column; justify-content: center; gap: 4px;
+    padding: 96px var(--gutter) 48px; background: var(--montage-green);
+    font-size: clamp(28px, 9vw, 44px); font-weight: 600; letter-spacing: -.02em;
+    visibility: hidden; transform: translateY(-100%);
+    transition: transform .6s var(--ease), visibility 0s linear .6s;
+  }
+  .nav__links a { padding: 10px 0; border-bottom: 1px solid var(--line-dark); }
+  .nav__links a:last-child { border-bottom: 0; }
+  .menu-open .nav__links { visibility: visible; transform: none; transition: transform .6s var(--ease); }
+  .menu-open .brand { position: relative; z-index: 1100; }
+  body.menu-open { overflow: hidden; }
+}
+
 @media (max-width: 560px) {
-  .nav { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .nav__links { flex-wrap: wrap; gap: 0 20px; font-size: 11px; letter-spacing: .14em; }
   .hero__title { font-size: 11vw; }
   .btn { width: 100%; justify-content: space-between; }
-  .contact__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .contact__inner { gap: 40px; }
+  .contact .h2--lg { font-size: 9vw; }
+  .contact__row { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 16px 0; }
+  .contact__row dd { font-size: 17px; }
+  .contact__row dd a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 0; }
+  .contact__row dd a .arrow { display: inline; color: var(--montage-orange); }
+  .contact__list .contact__row:last-child { border-bottom: 1px solid var(--line-light); }
+  .footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; }
+  .footer__bottom { flex-direction: column; }
   .media__play { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
   .posters__grid { columns: 1; }
   .works__grid { grid-template-columns: minmax(0, 1fr); }

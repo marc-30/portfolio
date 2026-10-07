@@ -188,6 +188,21 @@
     ]));
   });
 
+  /* ───────── Menu mobile ───────── */
+  var navToggle = document.getElementById("nav-toggle");
+  var navLinks = document.getElementById("nav-links");
+  function setMenu(open) {
+    // Le menu est caché hors écran : son animation d'apparition ne s'est jamais jouée.
+    if (open && navLinks.getAnimations) navLinks.getAnimations().forEach(function (an) { an.finish(); });
+    document.body.classList.toggle("menu-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.querySelector(".nav__toggle-label").textContent = open ? "Fermer" : "Menu";
+  }
+  navToggle.addEventListener("click", function () { setMenu(!document.body.classList.contains("menu-open")); });
+  navLinks.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && document.body.classList.contains("menu-open")) setMenu(false); });
+  window.matchMedia("(min-width: 761px)").addEventListener("change", function (m) { if (m.matches) setMenu(false); });
+
   /* ───────── Contact ───────── */
   var c = SITE.contact || {};
   var rows = [
@@ -200,7 +215,7 @@
   rows.forEach(function (r) {
     var dd = el("dd");
     if (r.value && r.href) {
-      var a = el("a", { href: r.href, text: r.value });
+      var a = el("a", { href: r.href }, [el("span", { text: r.value }), el("span", { class: "arrow", "aria-hidden": "true", text: "→" })]);
       if (r.ext) { a.target = "_blank"; a.rel = "noopener"; }
       dd.appendChild(a);
     } else dd.textContent = r.value || r.ph;

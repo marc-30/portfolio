@@ -12,12 +12,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=5">
-  <link rel="stylesheet" href="assets/css/preloader.css?v=5">
-  <script src="data/site.js?v=5"></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=6">
+  <link rel="stylesheet" href="assets/css/preloader.css?v=6">
+  <script src="data/site.js?v=6"></script>
 </head>
 <body>
-  <script src="assets/js/preloader.js?v=5"></script>
+  <script src="assets/js/preloader.js?v=6"></script>
   <a class="skip" href="#videos">Aller aux vidéos</a>
 
   <header id="presentation" class="hero">
@@ -26,7 +26,11 @@
         <span class="brand__name" data-site="name"></span>
         <span class="brand__client">Pour <span data-site="client"></span></span>
       </a>
-      <div class="nav__links" data-reveal="fade">
+      <button type="button" class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" data-reveal="fade">
+        <span class="nav__toggle-label">Menu</span>
+        <span class="nav__toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="nav__links" id="nav-links" data-reveal="fade">
         <a href="#approche">Présentation</a>
         <a href="#videos">Vidéos</a>
         <a href="#affiches">Affiches</a>
@@ -207,7 +211,7 @@
     </div>
   </div>
 
-  <script src="data/projects.js?v=5"></script>
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="data/projects.js?v=6"></script>
+  <script src="assets/js/main.js?v=6"></script>
 </body>
 </html>
