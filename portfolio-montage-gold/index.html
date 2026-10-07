@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Présentation créative — Portfolio vidéo pour Montage Gold</title>
+  <meta name="description" content="Portfolio créatif : sélection de contenus vidéo proposée à Montage Gold. Proposition indépendante, non officielle.">
+  <meta property="og:title" content="Présentation créative — Portfolio vidéo">
+  <meta property="og:description" content="Sélection de contenus vidéo proposée à Montage Gold.">
+  <meta name="theme-color" content="#00594F">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/preloader.css">
+  <script src="data/site.js"></script>
+</head>
+<body>
+  <script src="assets/js/preloader.js"></script>
+  <a class="skip" href="#videos">Aller aux vidéos</a>
+
+  <header id="presentation" class="hero">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a href="#presentation" class="brand" data-reveal="fade">
+        <span class="brand__name" data-site="name"></span>
+        <span class="brand__client">Pour <span data-site="client"></span></span>
+      </a>
+      <div class="nav__links" data-reveal="fade">
+        <a href="#approche">Présentation</a>
+        <a href="#videos">Vidéos</a>
+        <a href="#affiches">Affiches</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero__body container">
+      <div class="eyebrow eyebrow--lime" data-reveal="fade" data-delay="200">
+        <span class="rule" data-reveal="line" data-delay="200"></span>
+        <span data-site="hero.label"></span>
+      </div>
+      <h1 class="hero__title">
+        <span class="mask"><span data-reveal="mask" data-delay="350" data-site="hero.titleLine1"></span></span>
+        <span class="mask"><span class="light" data-reveal="mask" data-delay="500" data-site="hero.titleLine2"></span></span>
+      </h1>
+      <div class="hero__foot">
+        <div class="hero__text">
+          <p class="hero__subtitle" data-reveal="up" data-delay="750" data-site="hero.subtitle"></p>
+          <p class="hero__desc" data-reveal="up" data-delay="850" data-site="hero.description"></p>
+        </div>
+        <a href="#videos" class="btn btn--outline" data-reveal="up" data-delay="1000">
+          <span data-site="hero.cta"></span><span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll container" aria-hidden="true" data-reveal="fade" data-delay="1200">
+      <span>Défiler</span><span class="hero__scroll-line"></span><span>MMXXVI</span>
+    </div>
+  </header>
+
+  <main>
+    <section id="approche" class="section intro">
+      <div class="container intro__grid">
+        <div class="intro__meta" data-reveal="up">
+          <span class="num">01</span>
+          <span class="rule rule--green" data-reveal="line"></span>
+          <span class="eyebrow">Approche</span>
+        </div>
+        <div class="intro__content">
+          <h2 class="h2">
+            <span class="mask"><span data-reveal="mask" data-site="intro.titleLine1"></span></span>
+            <span class="mask"><span class="light" data-reveal="mask" data-delay="120" data-site="intro.titleLine2"></span></span>
+          </h2>
+          <p class="lead" data-reveal="up" data-delay="200" data-site="intro.text"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--flush-top showreel" aria-labelledby="showreel-title">
+      <div class="container container--wide">
+        <div class="section-head" data-reveal="up">
+          <div>
+            <span class="eyebrow">Featured project</span>
+            <h2 id="showreel-title" class="h2 h2--xl">Showreel</h2>
+          </div>
+          <span class="meta" id="showreel-duration"></span>
+        </div>
+        <div id="showreel-slot" data-reveal="up" data-delay="100"></div>
+        <ul class="disciplines" data-reveal="up" aria-label="Disciplines">
+          <li>Motion design</li>
+          <li>Communication digitale</li>
+          <li>Contenu corporate</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="videos" class="section projects" aria-labelledby="videos-title">
+      <div class="container container--wide">
+        <div class="section-head section-head--ruled" data-reveal="up">
+          <div>
+            <span class="eyebrow">02 — Propositions</span>
+            <h2 id="videos-title" class="h2">Les vidéos qu’on propose</h2>
+          </div>
+          <span class="meta" id="project-count"></span>
+        </div>
+        <div class="projects__list" id="projects-list"></div>
+      </div>
+    </section>
+
+    <section id="affiches" class="section posters" aria-labelledby="affiches-title">
+      <div class="container container--wide">
+        <div class="section-head section-head--ruled" data-reveal="up">
+          <div>
+            <span class="eyebrow">03 — Propositions</span>
+            <h2 id="affiches-title" class="h2">Les affiches qu’on propose</h2>
+          </div>
+          <span class="meta" id="poster-count"></span>
+        </div>
+        <div class="posters__grid" id="posters-list"></div>
+      </div>
+    </section>
+
+    <section id="realisations" class="section works" aria-labelledby="realisations-title">
+      <div class="container container--wide">
+        <div class="section-head section-head--ruled" data-reveal="up">
+          <div>
+            <span class="eyebrow">04 — Références</span>
+            <h2 id="realisations-title" class="h2">Déjà réalisées</h2>
+          </div>
+          <span class="meta">Pour d’autres entreprises</span>
+        </div>
+        <div class="works__grid" id="works-list"></div>
+      </div>
+    </section>
+
+    <section class="statement" aria-label="Manifeste">
+      <div class="container container--wide statement__inner">
+        <span class="eyebrow eyebrow--lime" data-reveal="fade">05 — Intention</span>
+        <p class="statement__text">
+          <span class="mask"><span data-reveal="mask">Raconter.</span></span>
+          <span class="mask"><span class="light" data-reveal="mask" data-delay="180">Valoriser.</span></span>
+          <span class="mask"><span class="lime" data-reveal="mask" data-delay="360">Marquer.</span></span>
+        </p>
+        <span class="statement__rule" data-reveal="line" data-delay="500"></span>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <div class="contact__head">
+          <span class="eyebrow" data-reveal="up">Un projet ?</span>
+          <h2 id="contact-title" class="h2 h2--lg">
+            <span class="mask"><span data-reveal="mask">Créons quelque</span></span>
+            <span class="mask"><span class="light" data-reveal="mask" data-delay="120">chose d’impactant.</span></span>
+          </h2>
+        </div>
+        <div class="contact__grid">
+          <dl class="contact__list" id="contact-list"></dl>
+          <div data-reveal="up" data-delay="150">
+            <a class="btn btn--solid" id="contact-cta" href="#contact">Me contacter<span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__name">Portfolio créatif</span>
+          <span class="footer__sub">Présentation audiovisuelle</span>
+        </div>
+        <nav class="footer__nav" aria-label="Navigation de pied de page">
+          <a href="#approche">Présentation</a>
+          <a href="#videos">Vidéos</a>
+          <a href="#affiches">Affiches</a>
+          <a href="#realisations">Réalisations</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <span>Présentation créative réalisée pour Montage Gold. Proposition indépendante — ce site n’est pas le site officiel de Montage Gold.</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <button type="button" class="modal__close" id="modal-close" aria-label="Fermer la vidéo">Fermer <span aria-hidden="true">×</span></button>
+    <div class="modal__frame" id="modal-frame"></div>
+    <div class="modal__caption">
+      <span id="modal-title"></span>
+      <span class="modal__cat" id="modal-cat"></span>
+    </div>
+  </div>
+
+  <script src="data/projects.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
