@@ -162,7 +162,7 @@
 
   GALLERIES.forEach(function (g, gi) {
     var images = g.images || [];
-    var thumbs = el("div", { class: "gallery__thumbs" });
+    var thumbs = el("div", { class: "gallery__thumbs" + (images.length === 3 ? " gallery__thumbs--3" : "") });
     images.slice(0, 4).forEach(function (src, i) {
       var t = el("button", {
         type: "button", class: "gallery__thumb",

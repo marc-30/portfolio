@@ -126,4 +126,14 @@ window.GALLERIES = [
       "images/galerie/bnb/04.jpg",
     ],
   },
+  {
+    client: "CMU",
+    title: "CMU",
+    period: "Africa Expo Santé 2019",
+    images: [
+      "images/galerie/cmu/01.jpg",
+      "images/galerie/cmu/02.jpg",
+      "images/galerie/cmu/03.jpg",
+    ],
+  },
 ];
